@@ -1,4 +1,4 @@
 package lk.ijse.shaafashions.dto;
 
-public class Product {
+public class ClothOrders {
 }

@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.shaafashions.controller.LoginFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="900.0" stylesheets="@../CSS/Style.css" xmlns:fx ="http://javafx.com/javafx/21" fx:controller="lk.ijse.shaafashions.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="670.0" fitWidth="900.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/cover%201.jpg" />
+         </image>
+         <effect>
+            <BoxBlur height="3.0" iterations="2" width="3.0" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="620.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="root_rectangle" width="900.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="root_rectangle" width="900.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="593.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="605.0" fitWidth="959.0" layoutX="291.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/l2%20copy.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMPURPLE" height="460.0" layoutX="10.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shape" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="437.0" layoutX="22.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shape_rec_one" width="325.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="411.0" layoutX="33.0" layoutY="133.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shape_rec_two" width="302.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Button layoutX="46.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="42.0" prefWidth="278.0" styleClass="login_button" text="Log In">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fill="MEDIUMPURPLE" layoutX="46.0" layoutY="215.0" stroke="#14003e" strokeType="OUTSIDE" text="Login">
+         <font>
+            <Font name="Candara Bold" size="65.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="40.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/icons8-password-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="40.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/icons8-male-user-100.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUserName" layoutX="85.0" layoutY="267.0" prefHeight="42.0" prefWidth="239.0" promptText="Username" styleClass="login_text_feild" />
+      <TextField fx:id="txtPassword" layoutX="85.0" layoutY="336.0" prefHeight="42.0" prefWidth="239.0" promptText="Password" styleClass="login_text_feild" />
+      <Text fill="#f1eaff" layoutX="49.0" layoutY="517.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" text="Don't have an account ?">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="225.0" layoutY="517.0" onMouseClicked="#lblClickHereOnAction" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" text="CLICK HERE !">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+   </children>
 </AnchorPane>
