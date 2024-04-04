@@ -26,8 +26,13 @@ public class MainFormController {
         stage.setTitle("Shaa Fashions & Curtains | Login");
     }
 
-    public void lblOverviewOnAction(MouseEvent mouseEvent) {
+    public void lblOverviewOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootOver = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
+        Scene scene = new Scene(rootOver);
 
+        Stage stage = (Stage) dashboardAp.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Shaa Fashions & Curtains | Dashboard");
     }
 
     public void lblCustomerOnAction(MouseEvent mouseEvent) throws IOException {
