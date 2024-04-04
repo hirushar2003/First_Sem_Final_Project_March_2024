@@ -42,23 +42,40 @@ public class MainFormController {
         dashChildAp.getChildren().add(rootCustomer);
     }
 
-    public void lblOrdersOnAction(MouseEvent mouseEvent) {
+    public void lblOrdersOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootOrder = FXMLLoader.load(getClass().getResource("/view/OrdersForm.fxml"));
+
+        dashChildAp.getChildren().clear();
+        dashboardAp.getChildren().add(rootOrder);
+    }
+
+    public void lblRaowMaterialOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootRaw = FXMLLoader.load(getClass().getResource("/view/RawMaterialPhane.fxml"));
+
+        dashChildAp.getChildren().clear();
+        dashChildAp.getChildren().add(rootRaw);
+    }
+
+    public void lblEmployeeOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/EmployeePhane.fxml"));
+
+        dashChildAp.getChildren().clear();
+        dashChildAp.getChildren().add(rootEmp);
+    }
+
+    public void lblServiceOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootService = FXMLLoader.load(getClass().getResource("/view/ServicesPhane.fxml"));
+
+        dashChildAp.getChildren().clear();
+        dashChildAp.getChildren().add(rootService);
 
     }
 
-    public void lblRaowMaterialOnAction(MouseEvent mouseEvent) {
+    public void lblSupplierOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootSup = FXMLLoader.load(getClass().getResource("/view/SupplierPhane.fxml"));
 
-    }
-
-    public void lblEmployeeOnAction(MouseEvent mouseEvent) {
-
-    }
-
-    public void lblServiceOnAction(MouseEvent mouseEvent) {
-
-    }
-
-    public void lblSupplierOnAction(MouseEvent mouseEvent) {
+        dashChildAp.getChildren().clear();
+        dashChildAp.getChildren().add(rootSup);
 
     }
 
