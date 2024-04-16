@@ -1,14 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.shaafashions.controller.CustomerOhaneController"
-            prefHeight="650.0" prefWidth="693.0">
-
+<AnchorPane fx:id="customerAp" prefHeight="650.0" prefWidth="693.0" style="-fx-background-color: #F1EAFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.CustomerOhaneController">
+   <children>
+      <BorderPane layoutX="3.0" prefHeight="650.0" prefWidth="693.0">
+         <top>
+            <VBox prefHeight="134.0" prefWidth="673.0" spacing="15.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="53.0" prefWidth="694.0" spacing="200.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="286.0" spacing="10.0">
+                           <children>
+                              <TextField alignment="CENTER" prefHeight="35.0" prefWidth="200.0" promptText="Type here to search" style="-fx-background-color: #F1EAFF;">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-search-100.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-setting-100.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="694.0" spacing="10.0">
+                     <children>
+                        <Pane prefHeight="50.0" prefWidth="188.0" style="-fx-background-color: #DCBFFF; -fx-background-radius: 30px;">
+                           <children>
+                              <Label layoutX="79.0" layoutY="16.0" text="Add">
+                                 <font>
+                                    <Font name="Marlett" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="34.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-add-100.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane onMouseClicked="#phaneViewOnAction" prefHeight="50.0" prefWidth="188.0" style="-fx-background-color: #DCBFFF; -fx-background-radius: 30px;">
+                           <children>
+                              <Label layoutX="76.0" layoutY="16.0" text="View">
+                                 <font>
+                                    <Font name="Marlett" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="32.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-view-100.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Pane>
+                        <Pane onMouseClicked="#phaneCustomerManageOnAction" prefHeight="50.0" prefWidth="188.0" style="-fx-background-color: #DCBFFF; -fx-background-radius: 30px;">
+                           <children>
+                              <Label layoutX="65.0" layoutY="16.0" text="Manage">
+                                 <font>
+                                    <Font name="Marlett" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-manage-100.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </top>
+         <center>
+            <AnchorPane fx:id="customerAddPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField layoutX="40.0" layoutY="106.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer name" />
+                  <TextField layoutX="40.0" layoutY="186.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer address" />
+                  <TextField layoutX="40.0" layoutY="270.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer contact" />
+                  <TextField layoutX="40.0" layoutY="349.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer email" />
+                  <Button layoutX="41.0" layoutY="427.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #DCBFFF;" text="Clear">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Label layoutX="41.0" layoutY="87.0" text="Name ">
+                     <font>
+                        <Font name="Candara Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="166.0" text="Address">
+                     <font>
+                        <Font name="Candara Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="250.0" text="Contact">
+                     <font>
+                        <Font name="Candara Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="331.0" text="Email">
+                     <font>
+                        <Font name="Candara Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="230.0" layoutY="427.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #DCBFFF;" text="Add">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <ImageView fitHeight="332.0" fitWidth="350.0" layoutX="330.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/matey-lettering-new-arrival-with-people-who-buy-online.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>
