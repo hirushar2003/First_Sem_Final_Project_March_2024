@@ -198,6 +198,32 @@
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
+                                    <Image url="@../icon/icons8-salary-100.png" />
+                                 </image>
+                              </ImageView>
+                              <Label onMouseClicked="#lblSalaryOnAction" text="Salary">
+                                 <font>
+                                    <Font name="Candara Bold" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
                                     <Image url="@../icon/icons8-analysis-100.png" />
                                  </image>
                               </ImageView>
@@ -216,9 +242,6 @@
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
                         </HBox>
                      </children>
                      <BorderPane.margin>

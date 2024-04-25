@@ -1,6 +1,7 @@
 package lk.ijse.shaafashions.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -81,5 +82,11 @@ public class MainFormController {
 
     public void lblAnalysisOnAction(MouseEvent mouseEvent) {
 
+    }
+
+    public void lblSalaryOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootSalary = FXMLLoader.load(getClass().getResource("/view/SalaryPhane.fxml"));
+        dashChildAp.getChildren().clear();
+        dashChildAp.getChildren().add(rootSalary);
     }
 }
