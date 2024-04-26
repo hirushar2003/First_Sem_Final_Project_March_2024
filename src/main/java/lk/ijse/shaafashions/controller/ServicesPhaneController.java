@@ -1,17 +1,22 @@
 package lk.ijse.shaafashions.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.shaafashions.model.Salary;
 import lk.ijse.shaafashions.model.Service;
+import lk.ijse.shaafashions.model.tm.ServiceTm;
 import lk.ijse.shaafashions.repository.ServiceRepo;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ServicesPhaneController {
 
@@ -22,25 +27,64 @@ public class ServicesPhaneController {
     public TextField txtTotalPrice;
     public TextField txtServiceIdSearch;
     @FXML
-    private TableColumn<?, ?> colDeliveryPrice;
+    private TableColumn<Service, Integer> colDeliveryPrice;
 
     @FXML
-    private TableColumn<?, ?> colDistrict;
+    private TableColumn<Service, String> colDistrict;
 
     @FXML
-    private TableColumn<?, ?> colFittingPrice;
+    private TableColumn<Service, Integer> colFittingPrice;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<Service, Integer> colId;
 
     @FXML
-    private TableColumn<?, ?> colStockScale;
+    private TableColumn<Service, String> colStockScale;
 
     @FXML
-    private TableColumn<?, ?> colTotalCost;
+    private TableColumn<Service, Integer> colTotalCost;
 
     @FXML
-    private TableView<?> tblService;
+    private TableView<ServiceTm> tblService;
+
+    public void initialize (){
+        loadAllService();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("serviceId"));
+        colDistrict.setCellValueFactory(new PropertyValueFactory<>("district"));
+        colStockScale.setCellValueFactory(new PropertyValueFactory<>("stockScale"));
+        colDeliveryPrice.setCellValueFactory(new PropertyValueFactory<>("deliveryPrice"));
+        colFittingPrice.setCellValueFactory(new PropertyValueFactory<>("fittingPrice"));
+        colTotalCost.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+    }
+
+    private void loadAllService() {
+        ObservableList<ServiceTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<Service> serviceList = ServiceRepo.getAll();
+
+            for(Service service : serviceList){
+                ServiceTm serviceTm = new ServiceTm(
+
+                service.getServiceId(),
+                service.getDistrict(),
+                service.getStockScale(),
+                service.getDeliveryPrice(),
+                service.getFittingPrice(),
+                service.getTotalPrice()
+                );
+
+                obList.add(serviceTm);
+            }
+            tblService.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void btnServiceAddOnAction(ActionEvent actionEvent) {
         int serviceId = Integer.parseInt(txtServiceIdSearch.getText());

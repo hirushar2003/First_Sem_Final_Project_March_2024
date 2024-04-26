@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceRepo {
 
@@ -78,5 +80,31 @@ public class ServiceRepo {
         pstm.setObject(1, id);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static List <Service> getAll() throws SQLException {
+
+        String sql = "SELECT * FROM deliveryAndFitting";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<Service> serviceList = new ArrayList<>();
+
+        while (resultSet.next()){
+            int id = resultSet.getInt(1);
+            String district = resultSet.getString(2);
+            String scale = resultSet.getString(3);
+            int deliveryPrice = resultSet.getInt(4);
+            int fitPrice = resultSet.getInt(5);
+            int total = resultSet.getInt(6);
+
+            Service service = new Service(id, district, scale, deliveryPrice, fitPrice, total);
+
+            serviceList.add(service);
+        }
+        return serviceList ;
     }
 }

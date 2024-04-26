@@ -27,6 +27,7 @@ public class CustomerRepo {
     }
 
     public static List <Customer> getAll () throws SQLException {
+
         String sql = "SELECT * FROM customers";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()

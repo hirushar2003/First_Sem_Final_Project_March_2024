@@ -2,6 +2,8 @@ package lk.ijse.shaafashions.model;
 
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,4 +17,5 @@ public class Service {
     private int deliveryPrice ;
     private int fittingPrice ;
     private int totalPrice ;
+
 }
