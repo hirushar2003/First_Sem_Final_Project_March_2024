@@ -101,6 +101,7 @@ public class SupplierPhaneController {
             if(isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier has been successfully saved").show();
                 clearFielde();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -124,6 +125,7 @@ public class SupplierPhaneController {
             if (isUpdate){
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier updated sucessfully").show();
                 clearFielde();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -140,6 +142,7 @@ public class SupplierPhaneController {
             if(isDelete){
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier deleted sucessfully").show();
                 clearFielde();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -174,5 +177,4 @@ public class SupplierPhaneController {
         txtEmail.clear();
         txtIdSearch.clear();
     }
-
 }

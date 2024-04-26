@@ -151,7 +151,7 @@
                   </VBox>
                </children>
             </HBox>
-            <TableView fx:id="tblSupplier" prefHeight="382.0" prefWidth="672.0">
+            <TableView fx:id="tblSupplier" prefHeight="398.0" prefWidth="662.0">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="75.0" text="Supplier ID" />
                 <TableColumn fx:id="colName" prefWidth="117.60003662109375" text="Name" />
@@ -161,7 +161,7 @@
                   <TableColumn fx:id="colPrice" prefWidth="94.4000244140625" text="Price per unit" />
               </columns>
                <VBox.margin>
-                  <Insets left="5.0" right="5.0" top="25.0" />
+                  <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </TableView>
          </children>
