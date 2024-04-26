@@ -18,4 +18,5 @@ public class Service {
     private int fittingPrice ;
     private int totalPrice ;
 
+
 }
