@@ -1,6 +1,7 @@
 package lk.ijse.shaafashions.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -49,6 +50,8 @@ public class MainFormController {
     }
 
     public void lblRaowMaterialOnAction(MouseEvent mouseEvent) throws IOException {
+        //Parent rootRaw = FXMLLoader.load(getClass().getResource("/view/RawMaterialPhane.fxml.fxml"));
+
         Parent rootRaw = FXMLLoader.load(getClass().getResource("/view/RawMaterialPhane.fxml"));
 
         dashChildAp.getChildren().clear();

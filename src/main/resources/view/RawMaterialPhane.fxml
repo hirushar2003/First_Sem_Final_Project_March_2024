@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.RawMaterialController">
+<AnchorPane fx:id="rowMaterialAp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.RawMaterialController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="672.0">
          <children>
@@ -164,16 +164,16 @@
                </VBox.margin>
             </HBox>
             <TableView fx:id="tblRawMaterial" prefHeight="406.0" prefWidth="672.0">
-              <columns>
-                <TableColumn fx:id="colRawId" prefWidth="49.60000592470169" text="Raw Id" />
-                <TableColumn fx:id="colMaterialType" prefWidth="100.80001831054688" text="Type" />
+               <columns>
+                  <TableColumn fx:id="colRawId" prefWidth="49.60000592470169" text="Raw Id" />
+                  <TableColumn fx:id="colMaterialType" prefWidth="100.80001831054688" text="Type" />
                   <TableColumn fx:id="colDescription" prefWidth="111.20001220703125" text="Description" />
                   <TableColumn fx:id="colQuantityBought" prefWidth="77.5999755859375" text="Qty bought" />
                   <TableColumn fx:id="colQuantityOnHand" prefWidth="78.4000244140625" text="Qty on hand" />
                   <TableColumn fx:id="colRestockedDate" prefWidth="92.0" text="Restocked date" />
                   <TableColumn fx:id="colUnitPrice" prefWidth="65.60009765625" text="Unit price" />
                   <TableColumn fx:id="colSupplierId" prefWidth="87.99993896484375" text="Supplier's Id" />
-              </columns>
+               </columns>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </VBox.margin>

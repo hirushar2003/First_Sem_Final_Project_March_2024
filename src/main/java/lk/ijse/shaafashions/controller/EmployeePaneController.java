@@ -11,7 +11,6 @@ import lk.ijse.shaafashions.model.Employee;
 import lk.ijse.shaafashions.repository.EmployeeRepo;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePaneController {

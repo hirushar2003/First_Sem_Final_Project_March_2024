@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.shaafashions.model.RawMaterial;
 import lk.ijse.shaafashions.repository.RawMaterialRepo;
 import lk.ijse.shaafashions.repository.SupplierRepo;
@@ -23,6 +24,7 @@ public class RawMaterialController {
     public DatePicker datePickerRestockedDate;
     public TextField txtPricePerUnit;
     public TextField txtRowIdSearch;
+    public AnchorPane rowMaterialAp;
     @FXML
     private TableView<RawMaterial> tblRawMaterial;
 
