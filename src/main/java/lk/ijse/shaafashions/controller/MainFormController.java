@@ -1,14 +1,12 @@
 package lk.ijse.shaafashions.controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -47,7 +45,7 @@ public class MainFormController {
         Parent rootOrder = FXMLLoader.load(getClass().getResource("/view/OrdersForm.fxml"));
 
         dashChildAp.getChildren().clear();
-        dashboardAp.getChildren().add(rootOrder);
+        dashChildAp.getChildren().add(rootOrder);
     }
 
     public void lblRaowMaterialOnAction(MouseEvent mouseEvent) throws IOException {
@@ -58,7 +56,7 @@ public class MainFormController {
     }
 
     public void lblEmployeeOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/EmployeePhane.fxml"));
+        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/EmployeeSelectPhane.fxml"));
 
         dashChildAp.getChildren().clear();
         dashChildAp.getChildren().add(rootEmp);
