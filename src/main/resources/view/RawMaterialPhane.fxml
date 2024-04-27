@@ -1,14 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.shaafashions.controller.RawMaterialController"
-            prefHeight="650.0" prefWidth="672.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.RawMaterialController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="672.0">
+         <children>
+            <HBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="672.0">
+               <children>
+                  <VBox prefHeight="207.0" prefWidth="225.0">
+                     <children>
+                        <Pane prefHeight="77.0" prefWidth="226.0">
+                           <children>
+                              <TextField fx:id="txtType" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <Label layoutX="12.0" layoutY="5.0" text="Type">
+                                 <font>
+                                    <Font name="Candara Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="77.0" prefWidth="226.0">
+                           <children>
+                              <TextField fx:id="txtDescription" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <Label layoutX="11.0" layoutY="6.0" text="Description">
+                                 <font>
+                                    <Font name="Candara Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="77.0" prefWidth="226.0">
+                           <children>
+                              <TextField fx:id="txtQuantityBought" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <Label layoutX="9.0" layoutY="6.0" text="Quantity bought">
+                                 <font>
+                                    <Font name="Candara Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="207.0" prefWidth="225.0">
+                     <children>
+                        <Pane prefHeight="77.0" prefWidth="226.0">
+                           <children>
+                              <TextField fx:id="txtQuantityOnHand" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <Label layoutX="10.0" layoutY="7.0" text="Quantity on hand">
+                                 <font>
+                                    <Font name="Candara Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="80.0" prefWidth="226.0">
+                           <children>
+                              <Label layoutX="12.0" layoutY="8.0" text="Last restocked date">
+                                 <font>
+                                    <Font name="Candara Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="datePickerRestockedDate" layoutX="8.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="80.0" prefWidth="226.0">
+                           <children>
+                              <TextField fx:id="txtPricePerUnit" layoutX="10.0" layoutY="23.0" prefHeight="44.0" prefWidth="205.0" />
+                              <Label layoutX="11.0" layoutY="6.0" text="Price per unit">
+                                 <font>
+                                    <Font name="Candara Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="207.0" prefWidth="225.0" spacing="14.0">
+                     <children>
+                        <Pane prefHeight="71.0" prefWidth="225.0">
+                           <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="172.0" layoutY="28.0" onMouseClicked="#imgRowSearchOnAction" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-select-100.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ComboBox fx:id="comSupplierId" layoutX="10.0" layoutY="27.0" prefHeight="44.0" prefWidth="160.0" promptText="Select supplier Id" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="71.0" prefWidth="225.0">
+                           <children>
+                              <TextField fx:id="txtRowIdSearch" layoutX="10.0" layoutY="19.0" prefHeight="44.0" prefWidth="160.0" promptText="Input id to search" />
+                              <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="172.0" layoutY="19.0" onMouseClicked="#imgRowSearchOnAction" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icon/icons8-search-100.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="672.0">
+                           <children>
+                              <Pane prefHeight="52.0" prefWidth="100.0">
+                                 <children>
+                                    <Button layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnRowUpdateOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Update">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="52.0" prefWidth="100.0">
+                                 <children>
+                                    <Button layoutX="8.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnRowDeleteOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Delete">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="52.0" prefWidth="100.0">
+                                 <children>
+                                    <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#btnRowAddOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Add">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <TableView fx:id="tblRawMaterial" prefHeight="406.0" prefWidth="672.0">
+              <columns>
+                <TableColumn fx:id="colRawId" prefWidth="49.60000592470169" text="Raw Id" />
+                <TableColumn fx:id="colMaterialType" prefWidth="100.80001831054688" text="Type" />
+                  <TableColumn fx:id="colDescription" prefWidth="111.20001220703125" text="Description" />
+                  <TableColumn fx:id="colQuantityBought" prefWidth="77.5999755859375" text="Qty bought" />
+                  <TableColumn fx:id="colQuantityOnHand" prefWidth="78.4000244140625" text="Qty on hand" />
+                  <TableColumn fx:id="colRestockedDate" prefWidth="92.0" text="Restocked date" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="65.60009765625" text="Unit price" />
+                  <TableColumn fx:id="colSupplierId" prefWidth="87.99993896484375" text="Supplier's Id" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
