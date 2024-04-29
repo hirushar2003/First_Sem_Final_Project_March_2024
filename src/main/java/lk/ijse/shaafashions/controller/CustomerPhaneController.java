@@ -21,21 +21,21 @@ public class CustomerPhaneController {
     public TextField txtEmail;
 
     public void phaneViewOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootCustomerView = FXMLLoader.load(getClass().getResource("/view/CustomerViewPhane.fxml"));
+        Parent rootCustomerView = FXMLLoader.load(getClass().getResource("/view/customerBase/CustomerViewPhane.fxml"));
 
         customerAddPane.getChildren().clear();
         customerAddPane.getChildren().add(rootCustomerView);
     }
 
     public void phaneCustomerManageOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootCustomerManage = FXMLLoader.load(getClass().getResource("/view/CustomerManagePhane.fxml"));
+        Parent rootCustomerManage = FXMLLoader.load(getClass().getResource("/view/customerBase/CustomerManagePhane.fxml"));
 
         customerAddPane.getChildren().clear();
         customerAddPane.getChildren().add(rootCustomerManage);
     }
 
     public void phaneCustomerAddOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootCustomer = FXMLLoader.load(getClass().getResource("/view/CustomerPhane.fxml"));
+        Parent rootCustomer = FXMLLoader.load(getClass().getResource("/view/customerBase/CustomerPhane.fxml"));
 
         customerAddPane.getChildren().clear();
         customerAddPane.getChildren().add(rootCustomer);

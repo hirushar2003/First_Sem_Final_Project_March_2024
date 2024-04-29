@@ -1,7 +1,6 @@
 package lk.ijse.shaafashions.controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,14 +35,14 @@ public class MainFormController {
     }
 
     public void lblCustomerOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootCustomer = FXMLLoader.load(getClass().getResource("/view/CustomerPhane.fxml"));
+        Parent rootCustomer = FXMLLoader.load(getClass().getResource("/view/customerBase/CustomerPhane.fxml"));
 
         dashChildAp.getChildren().clear();
         dashChildAp.getChildren().add(rootCustomer);
     }
 
     public void lblOrdersOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootOrder = FXMLLoader.load(getClass().getResource("/view/OrdersForm.fxml"));
+        Parent rootOrder = FXMLLoader.load(getClass().getResource("/view/orderBase/OrdersSelectForm.fxml"));
 
         dashChildAp.getChildren().clear();
         dashChildAp.getChildren().add(rootOrder);

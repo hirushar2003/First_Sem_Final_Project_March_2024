@@ -32,7 +32,7 @@
                               </TextField>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-search-100.png" />
+                                    <Image url="@../../icon/icons8-search-100.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -41,7 +41,7 @@
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-setting-100.png" />
+                                    <Image url="@../../icon/icons8-setting-100.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -59,7 +59,7 @@
                               </Label>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="34.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-add-100.png" />
+                                    <Image url="@../../icon/icons8-add-100.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -76,7 +76,7 @@
                               </Label>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="32.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-view-100.png" />
+                                    <Image url="@../../icon/icons8-view-100.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -93,7 +93,7 @@
                               </Label>
                               <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-manage-100.png" />
+                                    <Image url="@../../icon/icons8-manage-100.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -151,7 +151,7 @@
                   </Button>
                   <ImageView fitHeight="332.0" fitWidth="350.0" layoutX="330.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/matey-lettering-new-arrival-with-people-who-buy-online.png" />
+                        <Image url="@../../image/matey-lettering-new-arrival-with-people-who-buy-online.png" />
                      </image>
                   </ImageView>
                </children>

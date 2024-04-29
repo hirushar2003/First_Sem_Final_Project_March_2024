@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.ClothingOrderManageController">
+   <children>
+      <HBox alignment="CENTER" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="672.0">
+         <children>
+            <VBox prefHeight="650.0" prefWidth="228.0">
+               <children>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Order held date">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="datePickerOHD" layoutX="7.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Order finishing date">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="datePickerOFD" layoutX="7.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Measurements">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtMeasurements" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Quantity orderd">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtQtyOrdered" layoutX="7.0" layoutY="34.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Description">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtDescription" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Cloth type">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtClotheType" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                     </children>
+                  </Pane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="650.0" prefWidth="228.0">
+               <children>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Labour cost per unit">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtLabourCostPerUnit" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Total labour cost">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtTotalLabourCost" layoutX="8.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: mediumpurple;" />
+                        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="162.0" layoutY="36.0" onMouseClicked="#imgGenerateLabourCost" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/icons8-reset-100.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Fabric meters per unit">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtFabricMetersPerUnit" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: mediumpurple;" />
+                        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="161.0" layoutY="36.0" onMouseClicked="#imgGenerateFabricMetersPerUnit" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/icons8-reset-100.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Paid Amount">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtPaidAmount" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Customer ID">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comCustomerId" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" />
+                        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="159.0" layoutY="37.0" onMouseClicked="#imgShowCustomerTable" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/icons8-select-100.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="94.0" prefWidth="228.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="14.0" text="Search order Id">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtSearchOrderID" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: mediumpurple;" />
+                        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="163.0" layoutY="33.0" onMouseClicked="#imgSearchOnAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/icons8-search-100.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="610.0" prefWidth="179.0" spacing="10.0">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnOrderAddOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Add">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnOrderUpdateOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Update">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnOrdrDeleteOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Delete">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" right="10.0" top="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="35.0" top="20.0" />
+               </padding></VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

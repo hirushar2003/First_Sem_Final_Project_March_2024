@@ -52,7 +52,7 @@
       </Button>
       <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="297.0" layoutY="368.0" onMouseClicked="#imgSearchOnAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icon/icons8-search-100.png" />
+            <Image url="@../../icon/icons8-search-100.png" />
          </image>
       </ImageView>
    </children>
