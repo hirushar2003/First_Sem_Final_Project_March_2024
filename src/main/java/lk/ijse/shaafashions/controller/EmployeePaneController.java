@@ -222,4 +222,19 @@ public class EmployeePaneController {
         comWorkingDays.setValue(null);
 
     }
+
+    public void viewDataOnAction(MouseEvent mouseEvent) {
+
+        Integer index = tblEmployee.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+        txtEmpIdSearch.setText(colEmpId.getCellData(index).toString());
+//        txtName.setText(colName.getCellData(index).toString());
+//        txtCompany.setText(colCompany.getCellData(index).toString());
+//        txtUnit.setText(colUnit.getCellData(index).toString());
+//        txtQty.setText(colQty.getCellData(index).toString());
+//        cmbSupId.setValue(colSupID.getCellData(index).toString());
+//        cmbLettId.setValue(colLettId.getCellData(index).toString());
+    }
 }

@@ -47,7 +47,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtMeasurements" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtMeasurements" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" />
                      </children>
                   </Pane>
                   <Pane prefHeight="94.0" prefWidth="228.0">
@@ -57,7 +57,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtQtyOrdered" layoutX="7.0" layoutY="34.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtQtyOrdered" layoutX="7.0" layoutY="34.0" prefHeight="50.0" prefWidth="200.0" />
                      </children>
                   </Pane>
                   <Pane prefHeight="94.0" prefWidth="228.0">
@@ -67,7 +67,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDescription" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtDescription" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" />
                      </children>
                   </Pane>
                   <Pane prefHeight="94.0" prefWidth="228.0">
@@ -77,7 +77,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtClotheType" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtClotheType" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" />
                      </children>
                   </Pane>
                </children>
@@ -97,7 +97,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtLabourCostPerUnit" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtLabourCostPerUnit" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" />
                      </children>
                   </Pane>
                   <Pane prefHeight="94.0" prefWidth="228.0">
@@ -107,7 +107,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTotalLabourCost" layoutX="8.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtTotalLabourCost" layoutX="8.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" />
                         <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="162.0" layoutY="36.0" onMouseClicked="#imgGenerateLabourCost" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../icon/icons8-reset-100.png" />
@@ -122,7 +122,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtFabricMetersPerUnit" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtFabricMetersPerUnit" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" />
                         <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="161.0" layoutY="36.0" onMouseClicked="#imgGenerateFabricMetersPerUnit" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../icon/icons8-reset-100.png" />
@@ -137,7 +137,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPaidAmount" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtPaidAmount" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="200.0" />
                      </children>
                   </Pane>
                   <Pane prefHeight="94.0" prefWidth="228.0">
@@ -162,7 +162,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSearchOrderID" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: mediumpurple;" />
+                        <TextField fx:id="txtSearchOrderID" layoutX="7.0" layoutY="33.0" prefHeight="50.0" prefWidth="150.0" />
                         <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="163.0" layoutY="33.0" onMouseClicked="#imgSearchOnAction" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../icon/icons8-search-100.png" />

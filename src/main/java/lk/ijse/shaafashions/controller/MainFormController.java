@@ -58,7 +58,7 @@ public class MainFormController {
     }
 
     public void lblEmployeeOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/EmployeeSelectPhane.fxml"));
+        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/employeeBase/EmployeeSelectPhane.fxml"));
 
         dashChildAp.getChildren().clear();
         dashChildAp.getChildren().add(rootEmp);

@@ -1,6 +1,5 @@
 package lk.ijse.shaafashions.controller;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +11,7 @@ public class EmployeeSelectPhaneController {
     public AnchorPane empSelectAp;
 
     public void employeeOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/EmployeePhane.fxml"));
+        Parent rootEmp = FXMLLoader.load(getClass().getResource("/view/employeeBase/EmployeePhane.fxml"));
 
         empSelectAp.getChildren().clear();
         empSelectAp.getChildren().add(rootEmp);

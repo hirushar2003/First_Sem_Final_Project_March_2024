@@ -96,7 +96,7 @@
                            <children>
                               <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="172.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-select-100.png" />
+                                    <Image url="@../../icon/icons8-select-100.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -110,7 +110,7 @@
                               <TextField fx:id="txtEmpIdSearch" layoutX="10.0" layoutY="19.0" prefHeight="44.0" prefWidth="160.0" promptText="Serch employee ID" />
                               <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="172.0" layoutY="19.0" onMouseClicked="#imgEmpSearchOnAction" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icon/icons8-search-100.png" />
+                                    <Image url="@../../icon/icons8-search-100.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -162,7 +162,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="tblEmployee" prefHeight="385.0" prefWidth="662.0">
+            <TableView fx:id="tblEmployee" onMouseClicked="#viewDataOnAction" prefHeight="385.0" prefWidth="662.0">
                <columns>
                   <TableColumn fx:id="colEmpId" prefWidth="49.60000592470169" text="Emp ID" />
                   <TableColumn fx:id="colEmpName" prefWidth="100.80001831054688" text="Name" />
