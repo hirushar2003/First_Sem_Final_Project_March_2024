@@ -51,7 +51,7 @@ public class MainFormController {
     public void lblRaowMaterialOnAction(MouseEvent mouseEvent) throws IOException {
         //Parent rootRaw = FXMLLoader.load(getClass().getResource("/view/RawMaterialPhane.fxml.fxml"));
 
-        Parent rootRaw = FXMLLoader.load(getClass().getResource("/view/RawMaterialPhane.fxml"));
+        Parent rootRaw = FXMLLoader.load(getClass().getResource("/view/RawMaterialSelectPhane.fxml"));
 
         dashChildAp.getChildren().clear();
         dashChildAp.getChildren().add(rootRaw);

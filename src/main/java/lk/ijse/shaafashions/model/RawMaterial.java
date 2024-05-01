@@ -29,4 +29,8 @@ public class RawMaterial {
         this.unitPrice = unitPrice;
         this.supplierId = supplierId;
     }
+
+    public RawMaterial(String qtyOnHand) {
+        this.qtyOnHand = qtyOnHand;
+    }
 }

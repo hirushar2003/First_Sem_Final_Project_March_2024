@@ -23,5 +23,7 @@ public class CurtainOrder {
     private String serviceId ;
     private double lengthInMeters;
     private double widthInMeters ;
+    private int totalCost;
+    private int leftToPay;
 
 }

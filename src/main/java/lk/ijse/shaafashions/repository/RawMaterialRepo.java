@@ -2,7 +2,6 @@ package lk.ijse.shaafashions.repository;
 
 import lk.ijse.shaafashions.db.DbConnection;
 import lk.ijse.shaafashions.model.RawMaterial;
-import lk.ijse.shaafashions.model.Supplier;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -113,5 +112,37 @@ public class RawMaterialRepo {
             rawMaterialList.add(rawMaterial);
         }
         return rawMaterialList;
+    }
+
+    public static boolean updateRm(int rawMaterialId, double quantityUsed) throws SQLException {
+
+        String extarctSql = "SELECT quantityOnHand FROM rowMaterial WHERE rowMaterialId = ?";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(extarctSql);
+
+        pstm.setObject(1, rawMaterialId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        if (resultSet.next()){
+            String qtyOnHand = resultSet.getString("quantityOnHand");
+
+            String[] splitQty = qtyOnHand.split(" ");
+
+            double qty = Double.parseDouble(splitQty[0]) + quantityUsed;
+
+            String quantity = qty + " " + splitQty[1];
+
+            String updateSql = "UPDATE rowMaterial SET quantityOnHand = ? WHERE rowMaterialId = ?";
+
+            PreparedStatement pstm1 = connection.prepareStatement(updateSql);
+
+            pstm1.setObject(1, quantity);
+            pstm1.setObject(2, rawMaterialId);
+
+            return pstm1.executeUpdate() > 0;
+        }
+        return  false ;
     }
 }

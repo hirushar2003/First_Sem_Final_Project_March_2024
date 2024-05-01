@@ -19,10 +19,9 @@ public class EmployeeSelectPhaneController {
     }
 
     public void workingDetailsOnAction(MouseEvent mouseEvent) throws IOException {
-
-        Parent rootWorkingDetails = FXMLLoader.load(getClass().getResource("/view/WorkingDetails.fxml"));
+        Parent rootWorkingDetail = FXMLLoader.load(getClass().getResource("/view/employeeBase/EmployeeWorkingDetail.fxml"));
 
         empSelectAp.getChildren().clear();
-        empSelectAp.getChildren().add(rootWorkingDetails);
+        empSelectAp.getChildren().add(rootWorkingDetail);
     }
 }

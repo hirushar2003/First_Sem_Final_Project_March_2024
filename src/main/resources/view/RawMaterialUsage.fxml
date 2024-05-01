@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.RawMaterialUsageController">
+   <children>
+      <TableView fx:id="tblRawMaterialUsage" layoutX="32.0" layoutY="123.0" prefHeight="403.0" prefWidth="607.0">
+        <columns>
+          <TableColumn fx:id="colRmUsageId" prefWidth="79.20001220703125" text="Rm Usage ID" />
+          <TableColumn fx:id="colQtyUsed" prefWidth="141.5999755859375" text="Qty Used (M)" />
+            <TableColumn fx:id="colRawMaterialId" minWidth="0.0" prefWidth="134.4000244140625" text="Raw Material ID" />
+            <TableColumn fx:id="colClothOrderId" minWidth="0.0" prefWidth="133.5999755859375" text="Cloth Order Id" />
+            <TableColumn fx:id="colCurtainOrderId" prefWidth="121.60003662109375" text="Curtain Order ID" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
