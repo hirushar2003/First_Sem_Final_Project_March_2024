@@ -59,16 +59,20 @@
                   </Pane>
                   <Pane prefHeight="110.0" prefWidth="262.0">
                      <children>
-                        <Label layoutX="92.0" layoutY="49.0" prefHeight="54.0" prefWidth="79.0" text="200" textAlignment="CENTER">
-                           <font>
-                              <Font name="Consolas Bold" size="45.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="64.0" layoutY="14.0" prefHeight="54.0" prefWidth="135.0" text="Finished orders" textAlignment="CENTER">
-                           <font>
-                              <Font name="Candara Bold" size="20.0" />
-                           </font>
-                        </Label>
+                        <VBox alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="58.0" prefWidth="232.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="232.0" text="Payment unfinished orders" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Candara Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblPaymentUnfinishedCurtainOrders" alignment="CENTER" prefHeight="54.0" prefWidth="79.0" text="200" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Consolas Bold" size="45.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </Pane>
                </children>
@@ -118,16 +122,20 @@
                   </Pane>
                   <Pane prefHeight="110.0" prefWidth="262.0">
                      <children>
-                        <Label layoutX="92.0" layoutY="49.0" prefHeight="54.0" prefWidth="79.0" text="200" textAlignment="CENTER">
-                           <font>
-                              <Font name="Consolas Bold" size="45.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="64.0" layoutY="14.0" prefHeight="54.0" prefWidth="135.0" text="Finished orders" textAlignment="CENTER">
-                           <font>
-                              <Font name="Candara Bold" size="20.0" />
-                           </font>
-                        </Label>
+                        <VBox alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="79.0" prefWidth="232.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="26.0" prefWidth="216.0" text="Payment finished orders" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Candara Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblPaymentUnFinishedClothOrders" alignment="CENTER" prefHeight="37.0" prefWidth="79.0" text="200" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Consolas Bold" size="45.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </Pane>
                </children>

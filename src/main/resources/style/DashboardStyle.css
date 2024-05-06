@@ -1,3 +1,8 @@
 .table-view {
 
 }
+
+.label-clicked{
+    -fx-text-fill: #003aa9;
+    -fx-font-size: 25px;
+}

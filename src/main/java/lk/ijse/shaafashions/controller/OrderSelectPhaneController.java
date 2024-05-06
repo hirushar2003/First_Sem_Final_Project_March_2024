@@ -4,13 +4,43 @@ package lk.ijse.shaafashions.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.shaafashions.repository.OrderSelectPaneRepo;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class OrderSelectPhaneController {
 
     public AnchorPane selectOrderAp;
+    public Label lblPaymentUnfinishedCurtainOrders;
+    public Label lblPaymentUnFinishedClothOrders;
+
+    public void initialize() throws SQLException {
+        setUnpaidCurtainOrders();
+        setUnpaidClothOrders();
+    }
+
+    private void setUnpaidCurtainOrders() throws SQLException {
+        int unPaidCurtainOrders = OrderSelectPaneRepo.getUnPaidCurtainOrders();
+
+        if (unPaidCurtainOrders != 0){
+            lblPaymentUnfinishedCurtainOrders.setText(String.valueOf(unPaidCurtainOrders));
+        } else {
+            lblPaymentUnfinishedCurtainOrders.setText("All orders are paid");
+        }
+    }
+
+    private void setUnpaidClothOrders() throws SQLException {
+        int unpaidClothOrders = OrderSelectPaneRepo.getUnpaidClothOrders();
+
+        if (unpaidClothOrders != 0){
+            lblPaymentUnFinishedClothOrders.setText(String.valueOf(unpaidClothOrders));
+        } else {
+            lblPaymentUnFinishedClothOrders.setText("All orders are paid");
+        }
+    }
 
     public void curtainOrderViewOnAction(ActionEvent actionEvent) throws IOException {
         Parent rootCUOV = FXMLLoader.load(getClass().getResource("/view/orderBase/CurtainOrdersView.fxml"));

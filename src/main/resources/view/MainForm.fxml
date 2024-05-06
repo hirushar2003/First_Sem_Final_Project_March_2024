@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="dashboardAp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="913.0" stylesheets="@../style/DashboardStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.MainFormController">
+<AnchorPane fx:id="dashboardAp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.MainFormController">
    <children>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="913.0" spacing="10.0">
          <children>
@@ -83,7 +83,7 @@
                                     <Image url="@../icon/icons8-box-100.png" />
                                  </image>
                               </ImageView>
-                              <Label onMouseClicked="#lblOrdersOnAction" text="Orders">
+                              <Label fx:id="lblOrders" onMouseClicked="#lblOrdersOnAction" text="Orders">
                                  <font>
                                     <Font name="Candara Bold" size="20.0" />
                                  </font>
@@ -314,58 +314,70 @@
                                           <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="200.0" spacing="35.0" style="-fx-background-radius: 30px;">
                                              <children>
                                                 <Pane prefHeight="82.0" prefWidth="179.0" style="-fx-background-color: #E5D4FF; -fx-background-radius: 30px;">
-                                                   <children>
-                                                      <Label alignment="CENTER" layoutX="61.0" layoutY="40.0" text="259" textAlignment="CENTER">
-                                                         <font>
-                                                            <Font name="Consolas Bold" size="34.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Text layoutX="46.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
-                                                         <font>
-                                                            <Font name="Marlett" size="30.0" />
-                                                         </font>
-                                                      </Text>
-                                                   </children>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                    </padding>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
+                                                   <children>
+                                                      <VBox alignment="CENTER" layoutX="13.0" layoutY="5.0" prefHeight="71.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Orders">
+                                                               <font>
+                                                                  <Font name="Marlett" size="30.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Label fx:id="lblNumOfOrders" alignment="CENTER" text="259" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Consolas Bold" size="34.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
                                                 </Pane>
                                                 <Pane prefHeight="82.0" prefWidth="179.0" style="-fx-background-color: #DCBFFF; -fx-background-radius: 30px;">
-                                                   <children>
-                                                      <Label alignment="CENTER" layoutX="61.0" layoutY="40.0" text="259" textAlignment="CENTER">
-                                                         <font>
-                                                            <Font name="Consolas Bold" size="34.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Text layoutX="22.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
-                                                         <font>
-                                                            <Font name="Marlett" size="30.0" />
-                                                         </font>
-                                                      </Text>
-                                                   </children>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                    </padding>
+                                                   <children>
+                                                      <VBox alignment="CENTER" layoutX="12.0" layoutY="6.0" prefHeight="71.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
+                                                               <font>
+                                                                  <Font name="Marlett" size="30.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Label fx:id="lblNumOfCustomers" alignment="CENTER" text="259" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Consolas Bold" size="34.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
                                                 </Pane>
                                                 <Pane prefHeight="82.0" prefWidth="179.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;">
-                                                   <children>
-                                                      <Label alignment="CENTER" layoutX="61.0" layoutY="40.0" text="259" textAlignment="CENTER">
-                                                         <font>
-                                                            <Font name="Consolas Bold" size="34.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Text layoutX="54.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profit">
-                                                         <font>
-                                                            <Font name="Marlett" size="30.0" />
-                                                         </font>
-                                                      </Text>
-                                                   </children>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                    </padding>
+                                                   <children>
+                                                      <VBox alignment="CENTER" layoutX="12.0" layoutY="6.0" prefHeight="71.0" prefWidth="155.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profit">
+                                                               <font>
+                                                                  <Font name="Marlett" size="30.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Label alignment="CENTER" text="259" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Consolas Bold" size="34.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
                                                 </Pane>
                                              </children>
                                              <opaqueInsets>
@@ -381,11 +393,127 @@
                                        <padding>
                                           <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                                        </padding>
+                                       <children>
+                                          <Text layoutX="69.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best" wrappingWidth="60.41717529296875">
+                                             <font>
+                                                <Font name="Marlett" size="30.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="39.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer">
+                                             <font>
+                                                <Font name="Marlett" size="30.0" />
+                                             </font>
+                                          </Text>
+                                          <VBox alignment="CENTER" layoutX="3.0" layoutY="95.0" prefHeight="298.0" prefWidth="194.0" spacing="10.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="71.0" prefWidth="194.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID">
+                                                         <font>
+                                                            <Font name="Marlett" size="30.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="lblCustomerId" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID">
+                                                         <font>
+                                                            <Font name="Marlett" size="25.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="65.0" prefWidth="194.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                                                         <font>
+                                                            <Font name="Marlett" size="30.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="lblCustomerName" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                                                         <font>
+                                                            <Font name="Marlett" size="25.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="73.0" prefWidth="194.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="No. of Orders">
+                                                         <font>
+                                                            <Font name="Marlett" size="30.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="lablNumOfOrders" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="No. of Orders">
+                                                         <font>
+                                                            <Font name="Marlett" size="25.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
                                     </AnchorPane>
                                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="200.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;">
                                        <padding>
                                           <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                                        </padding>
+                                       <children>
+                                          <VBox alignment="CENTER" layoutX="3.0" layoutY="101.0" prefHeight="298.0" prefWidth="194.0" spacing="10.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="71.0" prefWidth="194.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier ID">
+                                                         <font>
+                                                            <Font name="Marlett" size="30.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="lblSupplierId" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID">
+                                                         <font>
+                                                            <Font name="Marlett" size="25.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="65.0" prefWidth="194.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                                                         <font>
+                                                            <Font name="Marlett" size="30.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="lblSupplierName" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                                                         <font>
+                                                            <Font name="Marlett" size="25.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="73.0" prefWidth="194.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Material">
+                                                         <font>
+                                                            <Font name="Marlett" size="30.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="lblMaterial" fill="GREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="No. of Orders">
+                                                         <font>
+                                                            <Font name="Marlett" size="25.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                          <Text layoutX="70.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best" wrappingWidth="60.41717529296875">
+                                             <font>
+                                                <Font name="Marlett" size="30.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="55.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier">
+                                             <font>
+                                                <Font name="Marlett" size="30.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
                                     </AnchorPane>
                                  </children>
                                  <padding>
@@ -438,18 +566,28 @@
                            <children>
                               <HBox alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="73.0" prefWidth="636.0" spacing="60.0">
                                  <children>
-                                    <VBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="257.0" spacing="5.0">
+                                    <VBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="257.0">
                                        <children>
-                                          <Label text="White shirt Fabric stock ">
+                                          <Label text="Cloth fbric stock">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblClothFabricStock" text="White shirt Fabric stock ">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="257.0" spacing="5.0">
+                                    <VBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="257.0">
                                        <children>
-                                          <Label text="Curtain Bar Stock">
+                                          <Label text="Curtain Fabric stock">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblCurtainFabricStock" text="Curtain Fabric stock">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
