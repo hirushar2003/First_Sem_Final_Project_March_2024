@@ -3,6 +3,7 @@ package lk.ijse.shaafashions.repository;
 import lk.ijse.shaafashions.db.DbConnection;
 import lk.ijse.shaafashions.model.CurtainOrder;
 import lk.ijse.shaafashions.model.RawMaterialUsage;
+import lk.ijse.shaafashions.model.tm.CurtainOrderTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -307,5 +308,31 @@ public class CurtainOrderRepo {
         pstm.setObject(2, rawMaterialId);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static List<CurtainOrderTm> getAll() throws SQLException {
+
+        String sql = "SELECT curtainOrderId, heldDate, finishingDate, customerId, totalCost, leftToPay FROM curtainOrders";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ArrayList<CurtainOrderTm> allOrders = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()) {
+            String curtainOrderId = resultSet.getString(1);
+            LocalDate ohd = resultSet.getDate(2).toLocalDate();
+            LocalDate ofd = resultSet.getDate(3).toLocalDate();
+            int customerId = resultSet.getInt(4);
+            int totalCost = resultSet.getInt(5);
+            int leftToPay = resultSet.getInt(6);
+
+            CurtainOrderTm curtainOrderTm = new CurtainOrderTm(curtainOrderId, ohd, ofd, customerId, totalCost, leftToPay);
+
+            allOrders.add(curtainOrderTm);
+        }
+        return allOrders;
     }
 }

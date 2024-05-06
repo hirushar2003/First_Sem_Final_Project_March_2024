@@ -1,15 +1,19 @@
 package lk.ijse.shaafashions.controller;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.shaafashions.model.ClothOrder;
+import lk.ijse.shaafashions.model.RawMaterialUsage;
 import lk.ijse.shaafashions.repository.ClothOrderRepo;
+import lk.ijse.shaafashions.repository.CurtainOrderRepo;
+import lk.ijse.shaafashions.repository.RawMaterialRepo;
+import lk.ijse.shaafashions.repository.RawMaterialUsageRepo;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -17,127 +21,141 @@ import java.util.List;
 
 public class ClothingOrderManageController {
 
+    @FXML
+    private ComboBox<Integer> comCustomerId;
 
-    public DatePicker datePickerOHD;
-    public DatePicker datePickerOFD;
-    public TextField txtMeasurements;
-    public TextField txtQtyOrdered;
-    public TextField txtDescription;
-    public TextField txtClotheType;
-    public TextField txtLabourCostPerUnit;
-    public TextField txtTotalLabourCost;
-    public TextField txtFabricMetersPerUnit;
-    public TextField txtPaidAmount;
-    public ComboBox<Integer> comCustomerId;
-    public TextField txtSearchOrderID;
+    @FXML
+    private ComboBox<Integer> comRawMaterialID;
 
-    public void initialize (){
+    @FXML
+    private DatePicker datePickerOFD;
+
+    @FXML
+    private DatePicker datePickerOHD;
+
+    @FXML
+    private TextField txtClothOrderId;
+
+    @FXML
+    private TextField txtDescription;
+
+    @FXML
+    private TextField txtLaborCostPerUnit;
+
+    @FXML
+    private TextField txtLeftToPay;
+
+    @FXML
+    private TextField txtLength;
+
+    @FXML
+    private TextField txtNumOfUnits;
+
+    @FXML
+    private TextField txtPaidAmount;
+
+    @FXML
+    private TextField txtTotalCost;
+
+    @FXML
+    private TextField txtTotalLabourCost;
+
+    @FXML
+    private TextField txtUsagePerUnit;
+
+    @FXML
+    private TextField txtWidth;
+
+    public void initialize(){
         getCustomerIds();
-        loadAllCustomers();
-        setCellValueFactory();
-        loadCutomerIds();
+        getRawMaterialIds();
     }
 
-    private void loadCutomerIds() {
-
-    }
-
-    private void setCellValueFactory() {
-
-    }
-
-    private void loadAllCustomers() {
-
-    }
-
-    public void btnOrderAddOnAction(ActionEvent actionEvent) {
-        LocalDate dateOHD = datePickerOHD.getValue();
-        LocalDate dateOfd = datePickerOFD.getValue();
-        String measurements = txtMeasurements.getText();
-        int qty = Integer.parseInt(txtQtyOrdered.getText());
-        String desciption = txtDescription.getText();
-        String clothType = txtClotheType.getText();
-        int labourCostPerUnit = Integer.parseInt(txtLabourCostPerUnit.getText());
-        int totalLabourCost = Integer.parseInt(txtTotalLabourCost.getText());
-        double fabricMetersPerUnit = Double.parseDouble(txtFabricMetersPerUnit.getText());
-        int paidAmount = Integer.parseInt(txtPaidAmount.getText());
+    @FXML
+    void btnOrderAddOnAction(ActionEvent event) {
         int customerId = (int) comCustomerId.getValue();
-        String orderId = txtSearchOrderID.getText();
+        int rawMaterialID = (int) comRawMaterialID.getValue();
+        LocalDate oFD = datePickerOFD.getValue();
+        LocalDate oHD = datePickerOHD.getValue();
+        String clothOrderId = txtClothOrderId.getText();
+        String description = txtDescription.getText();
+        int laborCostPerUnitText = Integer.parseInt(txtLaborCostPerUnit.getText());
+        int leftToPay = Integer.parseInt(txtLeftToPay.getText());
+        double length = Double.parseDouble(txtLength.getText());
+        int numOfUnits = Integer.parseInt(txtNumOfUnits.getText());
+        int paidAmount = Integer.parseInt(txtPaidAmount.getText());
+        int totalCost = Integer.parseInt(txtTotalCost.getText());
+        int totalLabourCost = Integer.parseInt(txtTotalLabourCost.getText());
+        double usage = Double.parseDouble(txtUsagePerUnit.getText());
+        double width = Double.parseDouble(txtWidth.getText());
 
-        ClothOrder clothOrder = new ClothOrder(orderId, dateOHD, dateOfd, labourCostPerUnit, qty, measurements, fabricMetersPerUnit, clothType, totalLabourCost, paidAmount, desciption, customerId);
+        double totalRawMaterialUsed = length * width * numOfUnits ;
+
+        ClothOrder clothOrder = new ClothOrder(clothOrderId, oHD, oFD, laborCostPerUnitText, numOfUnits, length, width, usage, totalLabourCost, paidAmount, leftToPay, description, customerId, totalCost);
 
         try {
             boolean isSaved = ClothOrderRepo.addNewOrder(clothOrder);
-
             if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Order Added Sucessfully").show();
-                initialize();
-                clearFields();
+                new Alert(Alert.AlertType.CONFIRMATION, "Order created sucessfully").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        RawMaterialUsage rawMaterialUsage = new RawMaterialUsage(rawMaterialID, clothOrderId, totalRawMaterialUsed);
+
+        try {
+            boolean isCreated = RawMaterialUsageRepo.createClothRawMaterialUsage(rawMaterialUsage);
+            if (isCreated){
+                new Alert(Alert.AlertType.CONFIRMATION, "Created raw material usage").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        RawMaterialUsage rawMaterialUsage1 = new RawMaterialUsage(totalRawMaterialUsed);
+
+        try {
+            boolean isUpdateRawMaterial = CurtainOrderRepo.updateRawMaterial(rawMaterialUsage1, rawMaterialID);
+            if (isUpdateRawMaterial){
+                new Alert(Alert.AlertType.CONFIRMATION, "Updateed Raw Material").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-    public void imgSearchOnAction(MouseEvent mouseEvent) throws SQLException {
 
-        String id = txtSearchOrderID.getText();
-
-        ClothOrder clothOrder = ClothOrderRepo.searchById(id);
-
-        if (clothOrder != null){
-            datePickerOHD.setValue(clothOrder.getHeldDate());
-            datePickerOFD.setValue(clothOrder.getFinishingDate());
-            txtMeasurements.setText(clothOrder.getMeasurements());
-            txtQtyOrdered.setText(String.valueOf(clothOrder.getQtyOrderd()));
-            txtDescription.setText(clothOrder.getDescription());
-            txtClotheType.setText(clothOrder.getClothType());
-            txtLabourCostPerUnit.setText(String.valueOf(clothOrder.getLabourCostPerUnit()));
-            txtTotalLabourCost.setText(String.valueOf(clothOrder.getTotalLabourCost()));
-            txtFabricMetersPerUnit.setText(String.valueOf(clothOrder.getFabricMeatersPerOneUnit()));
-            txtPaidAmount.setText(String.valueOf(clothOrder.getPaidAmount()));
-            comCustomerId.setValue(clothOrder.getCustomerId());
-            txtSearchOrderID.setText(clothOrder.getOrderId());
-        } else {
-            new Alert(Alert.AlertType.ERROR, " Cloth Order not Found !").show();
-        }
-    }
-
-    public void btnOrderUpdateOnAction(ActionEvent actionEvent) {
-        LocalDate dateOHD = datePickerOHD.getValue();
-        LocalDate dateOfd = datePickerOFD.getValue();
-        String measurements = txtMeasurements.getText();
-        int qty = Integer.parseInt(txtQtyOrdered.getText());
-        String desciption = txtDescription.getText();
-        String clothType = txtClotheType.getText();
-        int labourCostPerUnit = Integer.parseInt(txtLabourCostPerUnit.getText());
-        int totalLabourCost = Integer.parseInt(txtTotalLabourCost.getText());
-        double fabricMetersPerUnit = Double.parseDouble(txtFabricMetersPerUnit.getText());
-        int paidAmount = Integer.parseInt(txtPaidAmount.getText());
-        int customerId = (int) comCustomerId.getValue();
-        String orderId = txtSearchOrderID.getText();
-
-        ClothOrder clothOrder = new ClothOrder(orderId, dateOHD, dateOfd, labourCostPerUnit, qty, measurements, fabricMetersPerUnit, clothType, totalLabourCost, paidAmount, desciption, customerId);
+    @FXML
+    void btnOrderDeleteOnAction(ActionEvent event) {
+        String clothOrderId = txtClothOrderId.getText();
+        int rawMaterialId = comRawMaterialID.getValue();
 
         try {
-            boolean isUpdate = ClothOrderRepo.updateOrder(clothOrder);
+            double quantityUsed = RawMaterialUsageRepo.getQuantityUsed(clothOrderId);
+            boolean isUpdate = RawMaterialRepo.updateRm(rawMaterialId, quantityUsed);
 
             if (isUpdate){
-                new Alert(Alert.AlertType.CONFIRMATION, "Order Updated Sucessfully").show();
-                initialize();
-                clearFields();
-            } else {
-                new Alert(Alert.AlertType.ERROR, " Cannot update Cloth Order!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, " Raw Material Updated").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-    }
-
-    public void btnOrdrDeleteOnAction(ActionEvent actionEvent) {
-        String id = txtSearchOrderID.getText();
 
         try {
-            boolean isDelete = ClothOrderRepo.deleteClothingOrder(id);
+            boolean isDeleted = RawMaterialUsageRepo.deleteRawMaterialUsage(rawMaterialId);
+            if (isDeleted){
+                new Alert(Alert.AlertType.CONFIRMATION, "Raw Material Usage updated").show();
+                initialize();
+            }
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        try {
+            System.out.println(clothOrderId);
+            boolean isDelete = ClothOrderRepo.deleteOrder(clothOrderId);
+
             if (isDelete){
                 new Alert(Alert.AlertType.CONFIRMATION, "Cloth order deleted sucessfully").show();
                 initialize();
@@ -148,31 +166,177 @@ public class ClothingOrderManageController {
         }
     }
 
-    public void imgShowCustomerTable(MouseEvent mouseEvent) {
+    @FXML
+    void btnOrderUpdateOnAction(ActionEvent event) throws SQLException {
+        int customerId = (int) comCustomerId.getValue();
+        int rawMaterialID = (int) comRawMaterialID.getValue();
+        LocalDate oFD = datePickerOFD.getValue();
+        LocalDate oHD = datePickerOHD.getValue();
+        String clothOrderId = txtClothOrderId.getText();
+        String description = txtDescription.getText();
+        int laborCostPerUnitText = Integer.parseInt(txtLaborCostPerUnit.getText());
+        int leftToPay = Integer.parseInt(txtLeftToPay.getText());
+        double length = Double.parseDouble(txtLength.getText());
+        int numOfUnits = Integer.parseInt(txtNumOfUnits.getText());
+        int paidAmount = Integer.parseInt(txtPaidAmount.getText());
+        int totalCost = Integer.parseInt(txtTotalCost.getText());
+        int totalLabourCost = Integer.parseInt(txtTotalLabourCost.getText());
+        double usage = Double.parseDouble(txtUsagePerUnit.getText());
+        double width = Double.parseDouble(txtWidth.getText());
 
+        double previousQtyUsed = RawMaterialUsageRepo.getPreviousQtyUsedClothOrder(clothOrderId);
+
+        ClothOrder clothOrder = new ClothOrder(clothOrderId, oHD, oFD, laborCostPerUnitText, numOfUnits, length, width, usage, totalLabourCost, paidAmount, leftToPay, description, customerId, totalCost);
+
+        try {
+            boolean isUpdate = ClothOrderRepo.updateClothOrder(clothOrder);
+
+            if (isUpdate){
+                new Alert(Alert.AlertType.CONFIRMATION, "Order updated sucessfully").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        int rawMaterialId = comRawMaterialID.getValue() ;
+
+        double qtyUsed = usage * numOfUnits ;
+
+        System.out.println(qtyUsed);
+        System.out.println(rawMaterialId);
+        System.out.println(clothOrderId);
+
+        RawMaterialUsage rawMaterialUsage = new RawMaterialUsage(rawMaterialId, clothOrderId, qtyUsed);
+
+        try {
+            boolean isUpdate = RawMaterialUsageRepo.updateClothRawMaterialUsage(rawMaterialUsage);
+            if (isUpdate){
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated raw material usage sucessfully").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        RawMaterialUsage rmUsage = new RawMaterialUsage(qtyUsed);
+
+        System.out.println(previousQtyUsed);
+        try {
+            System.out.println(previousQtyUsed);
+            boolean isUpdate = CurtainOrderRepo.reUpdateRawMaterial(rmUsage, rawMaterialId, previousQtyUsed);
+            if (isUpdate){
+                new Alert(Alert.AlertType.CONFIRMATION, "Raw material updated sucessfully").show();
+                initialize();
+                clearFields();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
-    public void imgGenerateLabourCost(MouseEvent mouseEvent) {
+    @FXML
+    void imgGenerateLeftToPay(MouseEvent event) {
+        int totalCost = Integer.parseInt(txtTotalCost.getText());
+        int paidAmount = Integer.parseInt(txtPaidAmount.getText());
 
+        txtLeftToPay.setText(String.valueOf(totalCost - paidAmount));
     }
 
-    public void imgGenerateFabricMetersPerUnit(MouseEvent mouseEvent) {
+    @FXML
+    void imgGenerateTotalCost(MouseEvent event) {
+        int rmId = comRawMaterialID.getValue();
 
+        double lengthInMeters = Double.parseDouble(txtLength.getText());
+        double widthInMeters = Double.parseDouble(txtWidth.getText());
+        int numOfPieces = Integer.parseInt(txtNumOfUnits.getText());
+        int totalLabourCost = Integer.parseInt(txtTotalLabourCost.getText());
+
+        double area = lengthInMeters * widthInMeters ;
+
+        double wholeArea = area * numOfPieces;
+
+        try {
+            int pricePerMeter = ClothOrderRepo.generateTotalCost(rmId);
+            int totalRmCost = (int) (wholeArea * pricePerMeter);
+            final int totalCost = totalRmCost + totalLabourCost ;
+
+            txtTotalCost.setText(String.valueOf(totalCost));
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+    @FXML
+    void imgGenerateTotalLabourCost(MouseEvent event) {
+        int numOfPieces = Integer.parseInt(txtNumOfUnits.getText());
+        int labourCostPerMeter = Integer.parseInt(txtLaborCostPerUnit.getText());
+        double metersPerPiece = Double.parseDouble(txtUsagePerUnit.getText());
+
+        int totalLabourCost = (int) (numOfPieces * labourCostPerMeter * metersPerPiece);
+
+        txtTotalLabourCost.setText(String.valueOf(totalLabourCost));
+    }
+
+    @FXML
+    void imgGenerateUsagePerUnit(MouseEvent event) {
+
+        double length = Double.parseDouble(txtLength.getText());
+        double width = Double.parseDouble(txtLength.getText());
+
+        double usagePerUnit = length * width ;
+
+        txtUsagePerUnit.setText(String.valueOf(usagePerUnit));
+    }
+
+    @FXML
+    void imgSearchClothOrderId(MouseEvent event) {
+
+        String clothOrderid = txtClothOrderId.getText();
+
+        try {
+            ClothOrder clothOrder = ClothOrderRepo.searchOrderById(clothOrderid);
+
+            if (clothOrder != null){
+                comCustomerId.setValue(clothOrder.getCustomerId());
+                //comRawMaterialID.setValue(null);
+                datePickerOFD.setValue(clothOrder.getFinishingDate());
+                datePickerOHD.setValue(clothOrder.getHeldDate());
+                txtClothOrderId.setText(clothOrder.getClothOrderId());
+                txtDescription.setText(clothOrder.getDescription());
+                txtLaborCostPerUnit.setText(String.valueOf(clothOrder.getLabourCostPerUnit()));
+                txtLeftToPay.setText(String.valueOf(clothOrder.getLeftToPay()));
+                txtLength.setText(String.valueOf(clothOrder.getLength()));
+                txtNumOfUnits.setText(String.valueOf(clothOrder.getNumOfUnits()));
+                txtPaidAmount.setText(String.valueOf(clothOrder.getPaidAmount()));
+                txtTotalCost.setText(String.valueOf(clothOrder.getTotalCost()));
+                txtTotalLabourCost.setText(String.valueOf(clothOrder.getTotalLabourCost()));
+                txtUsagePerUnit.setText(String.valueOf(clothOrder.getUsagePerUnit()));
+                txtWidth.setText(String.valueOf(clothOrder.getWidth()));
+
+                comRawMaterialID.setValue(ClothOrderRepo.setRawMaterialIdInComboBoxWhenSearched(txtClothOrderId.getText()));
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Cannot find cloth order").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
     public void clearFields(){
-        datePickerOHD.setValue(null);
-        datePickerOFD.setValue(null);
-        txtMeasurements.clear();
-        txtQtyOrdered.clear();
-        txtDescription.clear();
-        txtClotheType.clear();
-        txtLabourCostPerUnit.clear();
-        txtTotalLabourCost.clear();
-        txtFabricMetersPerUnit.clear();
-        txtPaidAmount.clear();
         comCustomerId.setValue(null);
-        txtSearchOrderID.clear();
+        comRawMaterialID.setValue(null);
+        datePickerOFD.setValue(null);
+        datePickerOHD.setValue(null);
+        txtClothOrderId.clear();
+        txtDescription.clear();
+        txtLaborCostPerUnit.clear();
+        txtLeftToPay.clear();
+        txtLength.clear();
+        txtNumOfUnits.clear();
+        txtPaidAmount.clear();
+        txtTotalCost.clear();
+        txtTotalLabourCost.clear();
+        txtUsagePerUnit.clear();
+        txtWidth.clear();
     }
 
     private void getCustomerIds(){
@@ -180,12 +344,27 @@ public class ClothingOrderManageController {
         ObservableList<Integer> obList = FXCollections.observableArrayList();
 
         try {
-            List<Integer> cusIdList = ClothOrderRepo.getIds();
+            List<Integer> cusIdList = CurtainOrderRepo.getIds();
 
             for (int id :cusIdList){
                 obList.add(id);
             }
             comCustomerId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void getRawMaterialIds(){
+        ObservableList<Integer> obList = FXCollections.observableArrayList();
+
+        try {
+            List<Integer> rawIds = CurtainOrderRepo.getRawIds();
+
+            for (int id : rawIds){
+                obList.add(id);
+            }
+            comRawMaterialID.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

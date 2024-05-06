@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.shaafashions.controller.ClothingOrderViewController"
-            prefHeight="650.0" prefWidth="672.0">
 
+<AnchorPane prefHeight="650.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.ClothingOrderViewController">
+   <children>
+      <TableView fx:id="tblClothOrder" layoutX="11.0" layoutY="94.0" prefHeight="462.0" prefWidth="650.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="70.4000244140625" text="Order ID" />
+            <TableColumn fx:id="colHeldDate" prefWidth="101.5999755859375" text="Order held date" />
+            <TableColumn fx:id="colFinishingDate" prefWidth="101.59991455078125" text="Order finish date" />
+            <TableColumn fx:id="colCustomerId" prefWidth="85.60003662109375" text="Customer ID" />
+            <TableColumn fx:id="colUnitsOrderd" prefWidth="84.79998779296875" text="Units orderd" />
+            <TableColumn fx:id="colTotalCost" prefWidth="100.0" text="Total cost" />
+            <TableColumn fx:id="colPendingPayment" prefWidth="104.79998779296875" text="Pending payment" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>

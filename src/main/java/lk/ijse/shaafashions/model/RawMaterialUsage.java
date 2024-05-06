@@ -3,7 +3,9 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 
 public class RawMaterialUsage {
     private int rawMaterialUsageId;
@@ -11,6 +13,7 @@ public class RawMaterialUsage {
     private int rawMaterialId ;
     private String clothOrderId ;
     private String curtainOrderId ;
+
 
     public RawMaterialUsage(double quantityUsedInMeters, int rawMaterialId, String curtainOrderId) {
         this.quantityUsedInMeters = quantityUsedInMeters;
@@ -20,5 +23,10 @@ public class RawMaterialUsage {
 
     public RawMaterialUsage(double quantityUsedInMeters) {
         this.quantityUsedInMeters = quantityUsedInMeters;
+    }
+    public RawMaterialUsage(int rawMaterialId, String clothOrder, double quantityUsedInMeters) {
+        this.quantityUsedInMeters = quantityUsedInMeters;
+        this.rawMaterialId = rawMaterialId;
+        this.clothOrderId = clothOrder;
     }
 }
