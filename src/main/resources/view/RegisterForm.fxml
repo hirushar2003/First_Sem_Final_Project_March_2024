@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="registerAp" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: mediumpurple;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.RegisterFormController">
    <children>
       <Label layoutX="376.0" layoutY="31.0" text="Register">
@@ -17,32 +16,32 @@
             <Font name="System Bold" size="38.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="86.0" layoutY="107.0" prefHeight="45.0" prefWidth="230.0" promptText="Name">
+      <TextField fx:id="txtName" layoutX="86.0" layoutY="107.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="45.0" prefWidth="230.0" promptText="Name">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="txtAddress" layoutX="86.0" layoutY="176.0" prefHeight="45.0" prefWidth="230.0" promptText="Address">
+      <TextField fx:id="txtAddress" layoutX="86.0" layoutY="176.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="45.0" prefWidth="230.0" promptText="Address">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="txtContact" layoutX="86.0" layoutY="248.0" prefHeight="45.0" prefWidth="230.0" promptText="Contact">
+      <TextField fx:id="txtContact" layoutX="86.0" layoutY="248.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="45.0" prefWidth="230.0" promptText="Contact">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="txtEmail" layoutX="86.0" layoutY="318.0" prefHeight="45.0" prefWidth="230.0" promptText="Email">
+      <TextField fx:id="txtEmail" layoutX="86.0" layoutY="318.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="45.0" prefWidth="230.0" promptText="Email">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="txtPassword" layoutX="86.0" layoutY="458.0" prefHeight="45.0" prefWidth="230.0" promptText="Password">
+      <TextField fx:id="txtPassword" layoutX="86.0" layoutY="458.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="45.0" prefWidth="230.0" promptText="Password">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TextField fx:id="txtUserName" layoutX="86.0" layoutY="388.0" prefHeight="45.0" prefWidth="230.0" promptText="User Name">
+      <TextField fx:id="txtUserName" layoutX="86.0" layoutY="388.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="45.0" prefWidth="230.0" promptText="User Name">
          <effect>
             <DropShadow />
          </effect>

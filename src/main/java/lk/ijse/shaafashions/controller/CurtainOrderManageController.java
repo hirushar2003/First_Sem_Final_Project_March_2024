@@ -368,4 +368,8 @@ public class CurtainOrderManageController {
         txtTotalCost.clear();
         comRawMaterialID.setValue(null);
     }
+
+    public void btnPrintBillOnAction(ActionEvent actionEvent) {
+
+    }
 }

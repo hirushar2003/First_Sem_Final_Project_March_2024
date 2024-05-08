@@ -115,14 +115,17 @@
          <center>
             <AnchorPane fx:id="customerAddPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtFieldName" layoutX="40.0" layoutY="106.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer name" />
-                  <TextField fx:id="txtAddress" layoutX="40.0" layoutY="186.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer address" />
-                  <TextField fx:id="txtContact" layoutX="40.0" layoutY="270.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer contact" />
-                  <TextField fx:id="txtEmail" layoutX="40.0" layoutY="349.0" prefHeight="46.0" prefWidth="246.0" promptText="Input customer email" />
+                  <TextField fx:id="txtFieldName" layoutX="40.0" layoutY="106.0" onKeyReleased="#txtNameKeyReleasedOnAction" prefHeight="46.0" prefWidth="246.0" promptText="Input customer name" />
+                  <TextField fx:id="txtAddress" layoutX="40.0" layoutY="186.0" onKeyReleased="#txtAddressKeyRealesedOnAction" prefHeight="46.0" prefWidth="246.0" promptText="Input customer address" />
+                  <TextField fx:id="txtContact" layoutX="40.0" layoutY="270.0" onKeyReleased="#txtContactKeyRealeasedOnAction" prefHeight="46.0" prefWidth="246.0" promptText="Input customer contact" />
+                  <TextField fx:id="txtEmail" layoutX="40.0" layoutY="349.0" onKeyReleased="#txtEmailKeyReleasedOnAction" prefHeight="46.0" prefWidth="246.0" promptText="Input customer email" />
                   <Button layoutX="41.0" layoutY="427.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #DCBFFF;" text="Clear">
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Label layoutX="41.0" layoutY="87.0" text="Name ">
                      <font>
@@ -148,6 +151,9 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="332.0" fitWidth="350.0" layoutX="330.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
                      <image>

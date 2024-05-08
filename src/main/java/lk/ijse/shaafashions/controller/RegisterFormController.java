@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -62,5 +63,28 @@ public class RegisterFormController {
         txtEmail.clear();
         txtUserName.clear();
         txtPassword.clear();
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtContactOnKeyReleased(KeyEvent keyEvent) {
+    }
+
+    public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtUserNameOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

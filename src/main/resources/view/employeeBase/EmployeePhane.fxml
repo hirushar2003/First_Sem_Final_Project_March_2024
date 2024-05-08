@@ -26,7 +26,7 @@
                      <children>
                         <Pane prefHeight="77.0" prefWidth="226.0">
                            <children>
-                              <TextField fx:id="txtName" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <TextField fx:id="txtName" layoutX="9.0" layoutY="26.0" onKeyReleased="#txtNameKeyReleasedOnAction" prefHeight="44.0" prefWidth="205.0" />
                               <Label layoutX="12.0" layoutY="5.0" text="Name">
                                  <font>
                                     <Font name="Candara Bold" size="12.0" />
@@ -36,7 +36,7 @@
                         </Pane>
                         <Pane prefHeight="77.0" prefWidth="226.0">
                            <children>
-                              <TextField fx:id="txtAddress" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <TextField fx:id="txtAddress" layoutX="9.0" layoutY="26.0" onKeyReleased="#txtAddressKeyRealesedOnAction" prefHeight="44.0" prefWidth="205.0" />
                               <Label layoutX="11.0" layoutY="6.0" text="Address">
                                  <font>
                                     <Font name="Candara Bold" size="12.0" />
@@ -46,7 +46,7 @@
                         </Pane>
                         <Pane prefHeight="77.0" prefWidth="226.0">
                            <children>
-                              <TextField fx:id="txtContact" layoutX="9.0" layoutY="26.0" prefHeight="44.0" prefWidth="205.0" />
+                              <TextField fx:id="txtContact" layoutX="9.0" layoutY="26.0" onKeyReleased="#txtContactKeyRealeasedOnAction" prefHeight="44.0" prefWidth="205.0" />
                               <Label layoutX="9.0" layoutY="6.0" text="Contact">
                                  <font>
                                     <Font name="Candara Bold" size="12.0" />

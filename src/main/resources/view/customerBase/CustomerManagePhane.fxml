@@ -10,15 +10,15 @@
 
 <AnchorPane fx:id="customerManagePhane" prefHeight="495.2" prefWidth="750.6" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.shaafashions.controller.CustomerManagePhaneController">
    <children>
-      <TextField fx:id="txtCustomerNameManage" layoutX="51.0" layoutY="128.0" prefHeight="46.0" prefWidth="246.0" />
+      <TextField fx:id="txtCustomerNameManage" layoutX="51.0" layoutY="128.0" onKeyReleased="#txtNameKeyReleasedOnAction" prefHeight="46.0" prefWidth="246.0" />
       <Label layoutX="51.0" layoutY="110.0" text="Name">
          <font>
             <Font name="Candara Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomeAddresseManage" layoutX="51.0" layoutY="233.0" prefHeight="46.0" prefWidth="246.0" />
-      <TextField fx:id="txtCustomerEmailManage" layoutX="405.0" layoutY="233.0" prefHeight="46.0" prefWidth="246.0" />
-      <TextField fx:id="txtCustomerContactManage" layoutX="405.0" layoutY="128.0" prefHeight="46.0" prefWidth="246.0" />
+      <TextField fx:id="txtCustomeAddresseManage" layoutX="51.0" layoutY="233.0" onKeyReleased="#txtAddressKeyRealesedOnAction" prefHeight="46.0" prefWidth="246.0" />
+      <TextField fx:id="txtCustomerEmailManage" layoutX="405.0" layoutY="233.0" onKeyReleased="#txtEmailKeyReleasedOnAction" prefHeight="46.0" prefWidth="246.0" />
+      <TextField fx:id="txtCustomerContactManage" layoutX="405.0" layoutY="128.0" onKeyReleased="#txtContactKeyRealeasedOnAction" prefHeight="46.0" prefWidth="246.0" />
       <Label layoutX="51.0" layoutY="215.0" text="Address">
          <font>
             <Font name="Candara Bold" size="13.0" />

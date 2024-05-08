@@ -5,8 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.shaafashions.controller.util.Regex;
 import lk.ijse.shaafashions.model.Customer;
 import lk.ijse.shaafashions.repository.CustomerRepo;
 
@@ -47,14 +49,19 @@ public class CustomerPhaneController {
         int contact = Integer.parseInt(txtContact.getText());
         String email = txtEmail.getText();
 
-        Customer customer = new Customer(name, address, contact, email);
-
-        try {
-            boolean isSaved = CustomerRepo.customersave(customer);
-            new Alert(Alert.AlertType.CONFIRMATION , "Customer Saved Successfully").show();
-            clearFields();
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        if (isValid()){
+            Customer customer = new Customer(name, address, contact, email);
+            try {
+                boolean isSaved = CustomerRepo.customersave(customer);
+                if (isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION , "Customer Saved Successfully").show();
+                    clearFields();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        } else {
+            new Alert(Alert.AlertType.ERROR, "invalid ");
         }
     }
 
@@ -67,5 +74,30 @@ public class CustomerPhaneController {
         txtEmail.clear();
         txtContact.clear();
         txtAddress.clear();
+    }
+
+
+    public void txtNameKeyReleasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.NAME, txtFieldName);
+    }
+
+    public void txtAddressKeyRealesedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.ADDRESS, txtAddress);
+    }
+
+    public void txtEmailKeyReleasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.EMAIL, txtEmail);
+    }
+
+    public void txtContactKeyRealeasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.CONTACT, txtContact);
+    }
+
+    public boolean isValid(){
+        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.NAME,txtFieldName)) return false;
+        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.ADDRESS, txtAddress)) return false;
+        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.CONTACT, txtContact)) return false;
+        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.EMAIL, txtEmail)) return false;
+        return true ;
     }
 }

@@ -3,8 +3,10 @@ package lk.ijse.shaafashions.controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.shaafashions.controller.util.Regex;
 import lk.ijse.shaafashions.model.Customer;
 import lk.ijse.shaafashions.repository.CustomerRepo;
 
@@ -77,5 +79,27 @@ public class CustomerManagePhaneController {
         txtCustomeAddresseManage.clear();
         txtCustomerNameManage.clear();
         txtCustomerIdEnter.clear();
+    }
+
+    public void txtNameKeyReleasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.NAME, txtCustomerNameManage);
+    }
+
+    public void txtAddressKeyRealesedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.ADDRESS, txtCustomeAddresseManage);
+    }
+
+    public void txtEmailKeyReleasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.EMAIL, txtCustomerEmailManage);
+    }
+
+    public void txtContactKeyRealeasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.CONTACT, txtCustomerContactManage);
+    }
+
+    public boolean isValid(){
+        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.NAME,txtCustomerNameManage)) return false;
+        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.ADDRESS, txtCustomeAddresseManage)) return false;
+        return true ;
     }
 }
