@@ -1,8 +1,17 @@
 .table-view {
-
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-fill: mediumpurple;
 }
 
-.label-clicked{
-    -fx-text-fill: #003aa9;
+.label:hover{
+    -fx-text-fill: white;
     -fx-font-size: 25px;
+    -fx-font-style: bold;
+}
+
+.label:focused{
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-font-style: bold;
 }

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.shaafashions.model.Employee;
 import lk.ijse.shaafashions.repository.EmployeeRepo;
@@ -236,5 +237,17 @@ public class EmployeePaneController {
 //        txtQty.setText(colQty.getCellData(index).toString());
 //        cmbSupId.setValue(colSupID.getCellData(index).toString());
 //        cmbLettId.setValue(colLettId.getCellData(index).toString());
+    }
+
+    public void txtNameKeyReleasedOnAction(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAddressKeyRealesedOnAction(KeyEvent keyEvent) {
+
+    }
+
+    public void txtContactKeyRealeasedOnAction(KeyEvent keyEvent) {
+
     }
 }

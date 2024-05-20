@@ -143,6 +143,9 @@ public class CurtainOrderRepo {
 
         if (resultSet.next()){
             int rawMaterialId = resultSet.getInt("rawMaterialId");
+
+            System.out.println(rawMaterialId);
+
             return rawMaterialId ;
         }
         return 0 ;

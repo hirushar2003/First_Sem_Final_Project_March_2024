@@ -123,6 +123,15 @@
                            <children>
                               <Pane prefHeight="52.0" prefWidth="100.0">
                                  <children>
+                                    <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#btnRowAddOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Add">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="52.0" prefWidth="100.0">
+                                 <children>
                                     <Button layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnRowUpdateOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Update">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
@@ -136,15 +145,6 @@
                               <Pane prefHeight="52.0" prefWidth="100.0">
                                  <children>
                                     <Button layoutX="8.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnRowDeleteOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Delete">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="52.0" prefWidth="100.0">
-                                 <children>
-                                    <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#btnRowAddOnAction" prefHeight="36.0" prefWidth="59.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;" text="Add">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>

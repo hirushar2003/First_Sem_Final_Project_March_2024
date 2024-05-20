@@ -94,10 +94,10 @@ public class CustomerPhaneController {
     }
 
     public boolean isValid(){
-        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.NAME,txtFieldName)) return false;
-        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.ADDRESS, txtAddress)) return false;
-        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.CONTACT, txtContact)) return false;
-        if (Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.EMAIL, txtEmail)) return false;
+        if (!Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.NAME,txtFieldName)) return false;
+        if (!Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.ADDRESS, txtAddress)) return false;
+        if (!Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.CONTACT, txtContact)) return false;
+        if (!Regex.setTextColour(lk.ijse.shaafashions.controller.util.TextField.EMAIL, txtEmail)) return false;
         return true ;
     }
 }

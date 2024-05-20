@@ -223,29 +223,6 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
-                           <children>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icon/icons8-analysis-100.png" />
-                                 </image>
-                              </ImageView>
-                              <Label onMouseClicked="#lblAnalysisOnAction" text="Charts">
-                                 <font>
-                                    <Font name="Candara Bold" size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </HBox>
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="10.0" top="15.0" />
@@ -350,27 +327,6 @@
                                                                </font>
                                                             </Text>
                                                             <Label fx:id="lblNumOfCustomers" alignment="CENTER" text="259" textAlignment="CENTER">
-                                                               <font>
-                                                                  <Font name="Consolas Bold" size="34.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
-                                                </Pane>
-                                                <Pane prefHeight="82.0" prefWidth="179.0" style="-fx-background-color: #D0A2F7; -fx-background-radius: 30px;">
-                                                   <padding>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </padding>
-                                                   <children>
-                                                      <VBox alignment="CENTER" layoutX="12.0" layoutY="6.0" prefHeight="71.0" prefWidth="155.0">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profit">
-                                                               <font>
-                                                                  <Font name="Marlett" size="30.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <Label alignment="CENTER" text="259" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Consolas Bold" size="34.0" />
                                                                </font>

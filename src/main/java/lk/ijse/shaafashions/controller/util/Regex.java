@@ -19,9 +19,6 @@ public class Regex {
             case NAME:
                 field = "^[A-z|\\s]{3,}$";
                 break;
-            case DATE:
-                field = "";
-                break;
             case PRICE:
                 field = "";
                 break;
@@ -36,9 +33,6 @@ public class Regex {
                 break;
             case CONTACT:
                 field = "^(0[1-9][0-9]{8})$";
-                break;
-            case PASSWORD:
-                field = "";
                 break;
             case QUANTITY:
                 field = "";
@@ -68,10 +62,10 @@ public class Regex {
 
     public static boolean setTextColour(TextField location, javafx.scene.control.TextField field){
         if (Regex.isTextFieldValid(location, field.getText())){
-            field.setStyle("-fx-focus-colour: #00FF00");
+            field.setStyle("-fx-border-color: #00FF00;");
             return true;
         } else {
-            field.setStyle("-fx-border-colour: red; -fx-border-radius: 5px; -fx-border-width : 3px");
+            field.setStyle("-fx-border-color: #ff0000;");
             return false;
         }
     }

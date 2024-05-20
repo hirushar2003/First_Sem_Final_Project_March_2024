@@ -7,10 +7,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.shaafashions.model.ClothOrder;
 import lk.ijse.shaafashions.model.RawMaterialUsage;
-import lk.ijse.shaafashions.repository.ClothOrderRepo;
-import lk.ijse.shaafashions.repository.CurtainOrderRepo;
-import lk.ijse.shaafashions.repository.RawMaterialRepo;
-import lk.ijse.shaafashions.repository.RawMaterialUsageRepo;
+import lk.ijse.shaafashions.model.SetClothOrder;
+import lk.ijse.shaafashions.repository.*;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -90,36 +88,57 @@ public class ClothingOrderManageController {
 
         ClothOrder clothOrder = new ClothOrder(clothOrderId, oHD, oFD, laborCostPerUnitText, numOfUnits, length, width, usage, totalLabourCost, paidAmount, leftToPay, description, customerId, totalCost);
 
-        try {
-            boolean isSaved = ClothOrderRepo.addNewOrder(clothOrder);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Order created sucessfully").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-
         RawMaterialUsage rawMaterialUsage = new RawMaterialUsage(rawMaterialID, clothOrderId, totalRawMaterialUsed);
-
-        try {
-            boolean isCreated = RawMaterialUsageRepo.createClothRawMaterialUsage(rawMaterialUsage);
-            if (isCreated){
-                new Alert(Alert.AlertType.CONFIRMATION, "Created raw material usage").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
 
         RawMaterialUsage rawMaterialUsage1 = new RawMaterialUsage(totalRawMaterialUsed);
 
+        SetClothOrder setClothOrder = new SetClothOrder(clothOrder, rawMaterialUsage, rawMaterialUsage1, rawMaterialID);
+
         try {
-            boolean isUpdateRawMaterial = CurtainOrderRepo.updateRawMaterial(rawMaterialUsage1, rawMaterialID);
-            if (isUpdateRawMaterial){
-                new Alert(Alert.AlertType.CONFIRMATION, "Updateed Raw Material").show();
+            boolean isSavedSuccessfully = SetClothOrderRepo.addClothOrder(setClothOrder);
+            if (isSavedSuccessfully){
+                new Alert(Alert.AlertType.CONFIRMATION, "Order placed sucessfully ! ").show();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "OOPs cannot place the order ! ").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
+
+//        ClothOrder clothOrder = new ClothOrder(clothOrderId, oHD, oFD, laborCostPerUnitText, numOfUnits, length, width, usage, totalLabourCost, paidAmount, leftToPay, description, customerId, totalCost);
+//
+//        try {
+//            boolean isSaved = ClothOrderRepo.addNewOrder(clothOrder);
+//            if (isSaved){
+//                new Alert(Alert.AlertType.CONFIRMATION, "Order created sucessfully").show();
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+//        }
+//
+//        RawMaterialUsage rawMaterialUsage = new RawMaterialUsage(rawMaterialID, clothOrderId, totalRawMaterialUsed);
+//
+//        try {
+//            boolean isCreated = RawMaterialUsageRepo.createClothRawMaterialUsage(rawMaterialUsage);
+//            if (isCreated){
+//                new Alert(Alert.AlertType.CONFIRMATION, "Created raw material usage").show();
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+//        }
+//
+//        RawMaterialUsage rawMaterialUsage1 = new RawMaterialUsage(totalRawMaterialUsed);
+//
+//        try {
+//            boolean isUpdateRawMaterial = CurtainOrderRepo.updateRawMaterial(rawMaterialUsage1, rawMaterialID);
+//            if (isUpdateRawMaterial){
+//                new Alert(Alert.AlertType.CONFIRMATION, "Updateed Raw Material").show();
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+//        }
     }
 
     @FXML

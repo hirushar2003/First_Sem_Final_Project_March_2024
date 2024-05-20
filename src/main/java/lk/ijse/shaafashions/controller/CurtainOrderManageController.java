@@ -8,15 +8,22 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.shaafashions.db.DbConnection;
 import lk.ijse.shaafashions.model.CurtainOrder;
 import lk.ijse.shaafashions.model.RawMaterialUsage;
 import lk.ijse.shaafashions.repository.CurtainOrderRepo;
 import lk.ijse.shaafashions.repository.RawMaterialRepo;
 import lk.ijse.shaafashions.repository.RawMaterialUsageRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CurtainOrderManageController {
 
@@ -133,7 +140,13 @@ public class CurtainOrderManageController {
             txtTotalCost.setText(String.valueOf(curtainOrder.getTotalCost()));
             txtLeftToPay.setText(String.valueOf(curtainOrder.getLeftToPay()));
 
-            comRawMaterialID.setValue(CurtainOrderRepo.setRawMaterialIdInComboBoxWhenSearched(txtCurtainOrderId.getText()));
+            String curtainOrderId = txtCurtainOrderId.getText();
+
+            int rawMaterialId = CurtainOrderRepo.setRawMaterialIdInComboBoxWhenSearched(curtainOrderId);
+
+            comRawMaterialID.setValue(rawMaterialId);
+
+            //comRawMaterialID.setValue(CurtainOrderRepo.setRawMaterialIdInComboBoxWhenSearched(txtCurtainOrderId.getText()));
 
         } else {
             new Alert(Alert.AlertType.ERROR, "Cannot find curtain order Id").show();
@@ -369,7 +382,14 @@ public class CurtainOrderManageController {
         comRawMaterialID.setValue(null);
     }
 
-    public void btnPrintBillOnAction(ActionEvent actionEvent) {
+    public void btnPrintBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/Curtain_Order_Bill.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
+        Map<String,Object> data = new HashMap<>();
+        data.put("curtainOrderId",txtCurtainOrderId.getText());
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint,false);
     }
 }
